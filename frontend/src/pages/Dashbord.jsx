@@ -30,6 +30,10 @@ function Dashbord() {
     };
   }, [user, navigate, dispatch, isError, message]);
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <>
       <section className="heading">
