@@ -6,4 +6,8 @@ const initialState = {
   message: "",
 };
 
-
+export const goalSlice = createSlice({
+  name: "goal",
+  initialState,
+  reducers: {},
+});
