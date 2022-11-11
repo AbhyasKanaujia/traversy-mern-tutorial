@@ -44,6 +44,10 @@ function Login() {
     e.preventDefault();
   };
 
+  if (isLoading) {
+    return Spinner;
+  }
+
   return (
     <>
       <section className="heading">
