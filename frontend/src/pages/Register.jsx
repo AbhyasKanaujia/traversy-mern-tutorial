@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
 import { register } from "../features/auth/authSclice";
@@ -15,6 +16,8 @@ function Register() {
   const { name, email, password, confirmPassword } = formData;
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (store) => store.auth
   );
