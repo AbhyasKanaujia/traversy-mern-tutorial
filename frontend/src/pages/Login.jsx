@@ -14,6 +14,13 @@ function Login() {
 
   const { email, password } = formData;
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (store) => store.auth
+  );
+
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
