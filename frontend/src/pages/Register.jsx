@@ -24,6 +24,10 @@ function Register() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    if (password != confirmPassword) {
+      
+    }
   };
 
   return (
