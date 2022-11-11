@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
+import { register } from "../features/auth/authSclice";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ function Register() {
 
   const { name, email, password, confirmPassword } = formData;
 
+  const dispatch = useDispatch();
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (store) => store.auth
   );
@@ -29,6 +31,14 @@ function Register() {
 
     if (password != confirmPassword) {
       toast.error("Password do not match");
+    } else {
+      const userData = {
+        name,
+        email,
+        password,
+      };
+
+      dispatch(register(userData));
     }
   };
 
