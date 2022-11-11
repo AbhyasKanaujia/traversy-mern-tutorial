@@ -19,6 +19,12 @@ function Register() {
     (store) => store.auth
   );
 
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+  }, [isError, message]);
+
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -29,7 +35,7 @@ function Register() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       toast.error("Password do not match");
     } else {
       const userData = {
