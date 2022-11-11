@@ -11,6 +11,10 @@ function Register() {
 
   const { name, email, password, confirmPassword } = formData;
 
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (store) => store.auth
+  );
+
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
