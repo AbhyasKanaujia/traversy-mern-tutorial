@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
 
@@ -27,7 +28,7 @@ function Register() {
     e.preventDefault();
 
     if (password != confirmPassword) {
-      
+      toast.error("Password do not match");
     }
   };
 
