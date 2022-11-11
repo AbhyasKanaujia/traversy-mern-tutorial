@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
-import { register } from "../features/auth/authSclice";
+import { register, reset } from "../features/auth/authSclice";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -30,7 +30,9 @@ function Register() {
     if (isSuccess || user) {
       navigate("/");
     }
-  }, [isError, message, isSuccess, user, navigate]);
+
+    dispatch(reset());
+  }, [isError, message, isSuccess, user, navigate, dispatch]);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
