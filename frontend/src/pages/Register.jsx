@@ -26,7 +26,11 @@ function Register() {
     if (isError) {
       toast.error(message);
     }
-  }, [isError, message]);
+
+    if (isSuccess || user) {
+      navigate("/");
+    }
+  }, [isError, message, isSuccess, user, navigate]);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
