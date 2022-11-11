@@ -13,7 +13,14 @@ function Dashbord() {
     }
   }, [user, navigate]);
 
-  return <div>Dashbord</div>;
+  return (
+    <>
+      <section className="heading">
+        <h1>Welcome {user && user.name}</h1>
+      </section>
+      <p>Goals Dashboard</p>
+    </>
+  );
 }
 
 export default Dashbord;
