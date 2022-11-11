@@ -9,5 +9,10 @@ const initialState = {
 export const goalSlice = createSlice({
   name: "goal",
   initialState,
-  reducers: {},
+  reducers: {
+    reset: (state) => initialState,
+  },
 });
+
+export const { reset } = goalSlice.actions;
+export default goalSlice.reducer;
